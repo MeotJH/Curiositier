@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.css';
+import { useState } from "react";
+import { Container, Row, Col} from 'react-bootstrap';
 import './App.css';
+import Header from './layouts/Header'
+import Main from './layouts/Main2'
+
 
 function App() {
+
+  const [scrollY, setScrollY] = useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container>
+        <Header scrollY={scrollY}/>
+        <Main scrollY={scrollY} setScrollY={ setScrollY }/>
+      </Container>
     </div>
   );
 }
