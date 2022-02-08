@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import { useState } from "react";
-import { Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col, Stack} from 'react-bootstrap';
 import './App.css';
 import Header from './layouts/Header'
 import Main from './layouts/Main2'
@@ -12,9 +12,19 @@ function App() {
 
   return (
     <div className="App">
-      <Container>
-        <Header scrollY={scrollY}/>
-        <Main scrollY={scrollY} setScrollY={ setScrollY }/>
+      <Container fluid>
+      <Stack gap={5}>
+        <Row>
+          <Header scrollY={scrollY}/>
+        </Row>
+        <Row>
+          <Col></Col>
+          <Col xs={10} ><Main scrollY={scrollY} setScrollY={ setScrollY }/></Col>
+          <Col></Col>
+        </Row>
+        <Row>
+        </Row>
+      </Stack>
       </Container>
     </div>
   );
