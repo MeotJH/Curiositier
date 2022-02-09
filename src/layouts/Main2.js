@@ -1,12 +1,15 @@
-import { Card, Button, Row, Col} from 'react-bootstrap';
-import { useEffect } from "react";
-import defaultImg from "images/default.png"
+import { Card, Row, Col} from 'react-bootstrap';
+import { useEffect, useRef } from "react";
 
 export default function Main(props){
+
+    const myContainer = useRef(null);
 
     function logit() {
         props.setScrollY(window.pageYOffset);
     }
+
+    
 
     useEffect(() => {
         function watchScroll() {
@@ -16,13 +19,23 @@ export default function Main(props){
         return () => {
           window.removeEventListener("scroll", logit);
         };
-    }); 
+    });
+
+    function popCard(event) {
+        event.target.style.transform="translate(0, -10px)"
+        console.info('hello world');
+    };
+
+    function unPopCard(event) {
+        event.target.style.transform="translate(0, 3px)"
+        console.info('hello world!');
+    };
 
     return(
         <>
             <Row xs={2} md={5} className="g-4">
             {Array.from({ length: 50 }).map((_, idx) => (
-                <Col>
+                <Col onMouseEnter={popCard} onMouseLeave={unPopCard}>
                 <Card>
                     <Card.Img variant="top" src="holder.js/100px160" />
                     <Card.Body>

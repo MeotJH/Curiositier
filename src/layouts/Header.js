@@ -34,15 +34,16 @@ export default function Header(props){
 
 
     return(
-        <Navbar ref={myContainer} bg="white" variant="light">
-            <Container>
-            <Navbar.Brand href="#home">Curiositier</Navbar.Brand>
-            <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+        <Navbar ref={myContainer} collapseOnSelect expand="lg" bg="white ">
+        <Container>
+            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Nav>
+                <Nav.Link href="#deets">More deets</Nav.Link>
+                <Nav.Link eventKey={2} href="#memes">
+                Dank memes
+                </Nav.Link>
             </Nav>
-            </Container>
+        </Container>
         </Navbar>
             )
 }
